@@ -55,9 +55,11 @@ public class MainActivity extends AppCompatActivity implements LetterView.OnSlid
 
     @Override
     public void onSliding(String letter) {
-        int position = cityAdapter.letterIndex.get(letter);
-        Log.e("db","点击的" + position);
-        layoutManager.scrollToPositionWithOffset(position,0);
+         if(cityAdapter.letterIndex.containsKey(letter)){
+            int position = cityAdapter.letterIndex.get(letter);
+            Log.e("db","点击的" + position);
+            layoutManager.scrollToPositionWithOffset(position,0);
+        }
     }
 
     @Override
